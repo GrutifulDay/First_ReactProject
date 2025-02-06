@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import componentsImg from './assets/components.png'
 import { CORE_CONCEPTS } from './data.js'
 import Header from './components/Header/Header.jsx'
@@ -8,8 +10,14 @@ import TabButton from './components/TabButton.jsx'
 
 
 function App() {
-  function handleSelect() {
-    console.log("hello world-select");
+  useState()
+
+  function handleSelect(selectedButton) {
+    let tabContent = "Please click on button"
+
+    tabContent = selectedButton
+
+    console.log(tabContent);
 }
 
   return (
@@ -32,12 +40,13 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-          <TabButton onSelect={handleSelect}>Components</TabButton>
-          <TabButton>JSX</TabButton>
-          <TabButton>Props</TabButton>
-          <TabButton>State</TabButton>
+          <TabButton onSelect={() => handleSelect ('components')}>Components</TabButton>
+          <TabButton onSelect={() => handleSelect ('jsx')}>JSX</TabButton>
+          <TabButton onSelect={() => handleSelect ('props')}>Props</TabButton>
+          <TabButton onSelect={() => handleSelect ('state')}>State</TabButton>
             
           </menu>
+          
         </section>
       </main>
     </div>
